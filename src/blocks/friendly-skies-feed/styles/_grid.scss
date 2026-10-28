@@ -1,0 +1,20 @@
+.ghostlabs-fs-feed--grid {
+	display: grid;
+	grid-template-columns: repeat(var(--ghostlabs-fs-grid-columns, 3), 1fr);
+	gap: 16px;
+
+	.ghostlabs-fs-feed-post {
+		border: 1px solid var(--ghostlabs-fs-border);
+		border-radius: 8px;
+		padding: 16px;
+		overflow: hidden;
+	}
+
+	@media (max-width: 600px) {
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 601px) and (max-width: 900px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

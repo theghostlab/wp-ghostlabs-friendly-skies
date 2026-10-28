@@ -1,0 +1,152 @@
+[data-ghostlabs-fs-theme] {
+	--ghostlabs-fs-bg: oklch(1 0 0);
+	--ghostlabs-fs-text: oklch(0.2308 0 0);
+	--ghostlabs-fs-text-secondary: oklch(0.5404 0.0135 240.09);
+	--ghostlabs-fs-border: oklch(0.9248 0.0071 268.54);
+	--ghostlabs-fs-link: oklch(0.6257 0.2051 254.88);
+	--ghostlabs-fs-engagement: oklch(0.5404 0.0135 240.09);
+	--ghostlabs-fs-hover: oklch(0.9702 0 0);
+
+	@media (prefers-color-scheme: dark) {
+		--ghostlabs-fs-bg: oklch(0.23 0.02 256.47);
+		--ghostlabs-fs-text: oklch(0.9642 0 0);
+		--ghostlabs-fs-text-secondary: oklch(0.6736 0.0244 248.19);
+		--ghostlabs-fs-border: oklch(0.35 0.04 257.31);
+		--ghostlabs-fs-link: oklch(0.6409 0.194 254.74);
+		--ghostlabs-fs-engagement: oklch(0.6736 0.0244 248.19);
+		--ghostlabs-fs-hover: oklch(0.2692 0.0242 253.7);
+	}
+}
+
+[data-ghostlabs-fs-theme="light"] {
+	--ghostlabs-fs-bg: oklch(1 0 0);
+	--ghostlabs-fs-text: oklch(0.2308 0 0);
+	--ghostlabs-fs-text-secondary: oklch(0.5404 0.0135 240.09);
+	--ghostlabs-fs-border: oklch(0.9248 0.0071 268.54);
+	--ghostlabs-fs-link: oklch(0.6257 0.2051 254.88);
+	--ghostlabs-fs-engagement: oklch(0.5404 0.0135 240.09);
+	--ghostlabs-fs-hover: oklch(0.9702 0 0);
+}
+
+[data-ghostlabs-fs-theme="dark"] {
+	--ghostlabs-fs-bg: oklch(0.23 0.02 256.47);
+	--ghostlabs-fs-text: oklch(0.9642 0 0);
+	--ghostlabs-fs-text-secondary: oklch(0.6736 0.0244 248.19);
+	--ghostlabs-fs-border: oklch(0.35 0.04 257.31);
+	--ghostlabs-fs-link: oklch(0.6409 0.194 254.74);
+	--ghostlabs-fs-engagement: oklch(0.6736 0.0244 248.19);
+	--ghostlabs-fs-hover: oklch(0.2692 0.0242 253.7);
+}
+
+:where([data-ghostlabs-fs-theme]) {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	color: var(--ghostlabs-fs-text);
+	line-height: 1.5;
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	a {
+		color: var(--ghostlabs-fs-link);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+// Text for assistive technology only: the "(opens in a new tab)" hint at the end of a link,
+// a video's text alternative, a reply's "Reply to @handle". Block-scoped, because a theme is
+// not guaranteed to define .screen-reader-text.
+.ghostlabs-fs-visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+:is(.ghostlabs-fs-embed__display-name) {
+	font-size: 1.056rem;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+:is(.ghostlabs-fs-embed__content) {
+	font-size: 1.056rem;
+	line-height: 1.3;
+}
+
+:is(.ghostlabs-fs-embed__handle, .ghostlabs-fs-embed__stat) {
+	font-size: 0.9375rem;
+	line-height: 1.3333;
+}
+
+:is(.ghostlabs-fs-embed__timestamp) {
+	font-size: 0.81875rem;
+	line-height: 0.81875rem;
+}
+
+:is(.ghostlabs-fs-thread) {
+	padding: 1em;
+}
+
+// The setup screens' instructions, which _shared/setup-field.js renders inside the
+// placeholder's fieldset so the field can point at them with aria-describedby.
+.ghostlabs-fs-setup__instructions {
+	margin: 0 0 0.25rem;
+}
+
+.components-modal__frame.components-guide.ghostlabs-fs-block-guide {
+	max-width: 28rem;
+	min-height: auto;
+	max-height: none;
+
+	.components-guide__container {
+		display: flex;
+		flex-direction: column;
+		min-height: auto;
+	}
+
+	.components-guide__page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 0 1 auto;
+		padding: 2rem 2rem 1rem;
+		text-align: center;
+	}
+
+	.components-guide__page-control {
+		margin-bottom: 1rem;
+	}
+
+	.components-guide__footer {
+		padding: 0.75rem 2rem 1.5rem;
+		display: flex;
+		justify-content: flex-end;
+		gap: 0.5rem;
+	}
+}
+
+.ghostlabs-fs-block-guide__heading {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin: 0 0 0.5rem;
+	line-height: 1.3;
+}
+
+.ghostlabs-fs-block-guide p {
+	margin: 0;
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: #555;
+}

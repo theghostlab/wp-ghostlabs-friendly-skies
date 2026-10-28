@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ghostlabs/friendly-skies-follow-button",
+  "version": "0.1.0",
+  "title": "Friendly Skies: Follow Button",
+  "category": "embed",
+  "icon": "heart",
+  "description": "A styled button linking to a Bluesky profile with optional follower count.",
+  "keywords": [
+    "bluesky",
+    "follow",
+    "social",
+    "button",
+    "bsky"
+  ],
+  "attributes": {
+    "handle": {
+      "type": "string",
+      "default": ""
+    },
+    "theme": {
+      "type": "string",
+      "default": "system"
+    },
+    "buttonStyle": {
+      "type": "string",
+      "default": "primary"
+    },
+    "showFollowerCount": {
+      "type": "boolean",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "default": "Follow on Bluesky"
+    },
+    "size": {
+      "type": "string",
+      "default": "medium"
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ghostlabs-friendly-skies",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "file:./style-index.css",
+    "ghostlabs-fs-global"
+  ],
+  "render": "file:./render.php"
+}

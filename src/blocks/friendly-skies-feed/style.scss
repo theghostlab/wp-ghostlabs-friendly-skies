@@ -1,0 +1,18 @@
+@use "styles/feed-post";
+@use "styles/list";
+@use "styles/grid";
+
+.ghostlabs-fs-feed {
+	background-color: var(--ghostlabs-fs-bg);
+	padding: 1em;
+}
+
+.ghostlabs-fs-feed--error {
+	text-align: center;
+	padding: 24px 16px;
+
+	p {
+		margin: 0;
+		color: var(--ghostlabs-fs-text-secondary);
+	}
+}

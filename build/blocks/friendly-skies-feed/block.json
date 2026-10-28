@@ -1,0 +1,92 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ghostlabs/friendly-skies-feed",
+  "version": "0.1.0",
+  "title": "Friendly Skies: Feed",
+  "category": "embed",
+  "icon": "rss",
+  "description": "Display a Bluesky account’s posts as a list or a grid.",
+  "keywords": [
+    "bluesky",
+    "feed",
+    "social",
+    "timeline",
+    "bsky",
+    "atproto"
+  ],
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceType": {
+      "type": "string",
+      "default": "user"
+    },
+    "actor": {
+      "type": "string",
+      "default": ""
+    },
+    "layout": {
+      "type": "string",
+      "default": "list"
+    },
+    "theme": {
+      "type": "string",
+      "default": "system"
+    },
+    "maxPosts": {
+      "type": "integer",
+      "default": 10
+    },
+    "includeReplies": {
+      "type": "boolean",
+      "default": false
+    },
+    "includeReposts": {
+      "type": "boolean",
+      "default": true
+    },
+    "contentFilter": {
+      "type": "string",
+      "default": "all"
+    },
+    "pinnedPostUri": {
+      "type": "string",
+      "default": ""
+    },
+    "showEngagement": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTimestamps": {
+      "type": "boolean",
+      "default": true
+    },
+    "truncatePosts": {
+      "type": "boolean",
+      "default": true
+    },
+    "truncateLength": {
+      "type": "integer",
+      "default": 280
+    },
+    "gridColumns": {
+      "type": "integer",
+      "default": 3
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ghostlabs-friendly-skies",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "file:./style-index.css",
+    "ghostlabs-fs-global"
+  ],
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

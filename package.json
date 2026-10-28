@@ -1,0 +1,16 @@
+{
+  "name": "friendly-skies-blocks",
+  "version": "0.0.1",
+  "description": "Gutenberg block sources for Friendly Skies — shared by the free and pro editions",
+  "license": "GPL-2.0-or-later",
+  "author": "GhostLabs",
+  "private": true,
+  "scripts": {
+    "build": "wp-scripts build --config webpack.config.cjs",
+    "start": "wp-scripts start --config webpack.config.cjs"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^32.2.0",
+    "@wordpress/server-side-render": "^5.0.0"
+  }
+}

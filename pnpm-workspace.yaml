@@ -1,0 +1,7 @@
+# Mirrors pro-only/pnpm-workspace.yaml. Without it, pnpm's pre-run dependency check exits 1
+# on unapproved build scripts and `pnpm run build` fails before webpack ever starts.
+allowBuilds:
+  '@parcel/watcher': false
+  core-js: false
+  core-js-pure: false
+  unrs-resolver: false

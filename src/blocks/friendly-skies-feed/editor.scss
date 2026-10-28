@@ -1,0 +1,41 @@
+.ghostlabs-fs-feed-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	padding: 24px;
+
+	.components-placeholder__fieldset {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 8px;
+		width: 100%;
+		max-width: 400px;
+	}
+}
+
+.ghostlabs-fs-feed-placeholder__source-select {
+	margin-bottom: 4px;
+}
+
+.ghostlabs-fs-feed-placeholder__input-row {
+	display: flex;
+	gap: 8px;
+
+	.components-text-control__input {
+		flex: 1;
+	}
+}
+
+.ghostlabs-fs-feed-placeholder__error {
+	color: oklch(0.539 0.2095 28.09);
+	font-size: 0.8125rem;
+	margin: 0;
+}
+
+.wp-block-ghostlabs-friendly-skies-feed {
+	.components-server-side-render {
+		pointer-events: none;
+	}
+}

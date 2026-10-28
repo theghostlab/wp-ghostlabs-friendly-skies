@@ -1,0 +1,16 @@
+@use "styles/thread";
+
+.ghostlabs-fs-thread {
+	background-color: var(--ghostlabs-fs-bg);
+	max-width: 600px;
+}
+
+.ghostlabs-fs-thread--error {
+	text-align: center;
+	padding: 24px 16px;
+
+	p {
+		margin: 0;
+		color: var(--ghostlabs-fs-text-secondary);
+	}
+}

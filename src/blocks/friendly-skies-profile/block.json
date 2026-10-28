@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ghostlabs/friendly-skies-profile",
+  "version": "0.1.0",
+  "title": "Friendly Skies: Profile Card",
+  "category": "embed",
+  "icon": "id",
+  "description": "Display a Bluesky profile card.",
+  "keywords": [
+    "bluesky",
+    "profile",
+    "social",
+    "card",
+    "bsky"
+  ],
+  "attributes": {
+    "handle": {
+      "type": "string",
+      "default": ""
+    },
+    "theme": {
+      "type": "string",
+      "default": "system"
+    },
+    "cardStyle": {
+      "type": "string",
+      "default": "full"
+    },
+    "showStats": {
+      "type": "boolean",
+      "default": true
+    },
+    "showBio": {
+      "type": "boolean",
+      "default": true
+    },
+    "ctaButton": {
+      "type": "string",
+      "default": "none"
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "textdomain": "ghostlabs-friendly-skies",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "file:./style-index.css",
+    "ghostlabs-fs-global"
+  ],
+  "render": "file:./render.php"
+}

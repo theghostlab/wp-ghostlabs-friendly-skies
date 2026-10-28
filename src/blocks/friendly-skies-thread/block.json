@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ghostlabs/friendly-skies-thread",
+  "version": "0.1.0",
+  "title": "Friendly Skies: Thread",
+  "category": "embed",
+  "icon": "format-chat",
+  "description": "Display a Bluesky thread with replies and visual threading.",
+  "keywords": [
+    "bluesky",
+    "thread",
+    "replies",
+    "conversation",
+    "bsky"
+  ],
+  "attributes": {
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "theme": {
+      "type": "string",
+      "default": "system"
+    },
+    "depth": {
+      "type": "integer",
+      "default": 5
+    },
+    "showOnlyOpReplies": {
+      "type": "boolean",
+      "default": false
+    },
+    "showEngagement": {
+      "type": "boolean",
+      "default": true
+    },
+    "collapseThreshold": {
+      "type": "integer",
+      "default": 10
+    },
+    "clickBehavior": {
+      "type": "string",
+      "default": "open"
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "textdomain": "ghostlabs-friendly-skies",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "file:./style-index.css",
+    "ghostlabs-fs-global"
+  ],
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

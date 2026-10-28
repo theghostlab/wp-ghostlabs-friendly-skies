@@ -1,0 +1,161 @@
+.ghostlabs-fs-follow {
+	--ghostlabs-fs-btn-bg: oklch(0.6257 0.2051 254.88);
+	--ghostlabs-fs-btn-text: oklch(1 0 0);
+	--ghostlabs-fs-btn-border: transparent;
+	--ghostlabs-fs-btn-bg-secondary: oklch(0.9732 0.0131 251.56);
+	--ghostlabs-fs-btn-text-secondary: oklch(0.6257 0.2051 254.88);
+	--ghostlabs-fs-btn-border-secondary: oklch(0.9145 0.0421 253.81);
+	--ghostlabs-fs-btn-count: oklch(1 0 0 / 0.8);
+
+	@media (prefers-color-scheme: dark) {
+		--ghostlabs-fs-btn-bg-secondary: oklch(0.2787 0.0367 249.26);
+		--ghostlabs-fs-btn-text-secondary: oklch(0.6409 0.194 254.74);
+		--ghostlabs-fs-btn-border-secondary: oklch(0.3184 0.0077 240.08);
+		--ghostlabs-fs-btn-count: oklch(1 0 0 / 0.7);
+	}
+
+	&[data-ghostlabs-fs-theme="light"] {
+		--ghostlabs-fs-btn-bg-secondary: oklch(0.9732 0.0131 251.56);
+		--ghostlabs-fs-btn-text-secondary: oklch(0.6257 0.2051 254.88);
+		--ghostlabs-fs-btn-border-secondary: oklch(0.9145 0.0421 253.81);
+		--ghostlabs-fs-btn-count: oklch(1 0 0 / 0.8);
+	}
+
+	&[data-ghostlabs-fs-theme="dark"] {
+		--ghostlabs-fs-btn-bg-secondary: oklch(0.2787 0.0367 249.26);
+		--ghostlabs-fs-btn-text-secondary: oklch(0.6409 0.194 254.74);
+		--ghostlabs-fs-btn-border-secondary: oklch(0.3184 0.0077 240.08);
+		--ghostlabs-fs-btn-count: oklch(1 0 0 / 0.7);
+	}
+
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border-radius: 20px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: opacity 0.15s ease;
+	line-height: 1;
+
+	&:hover {
+		opacity: 0.85;
+		text-decoration: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--ghostlabs-fs-btn-bg);
+		outline-offset: 2px;
+	}
+}
+
+.ghostlabs-fs-follow--primary {
+	background-color: var(--ghostlabs-fs-btn-bg);
+	color: var(--ghostlabs-fs-btn-text);
+	border: 2px solid transparent;
+}
+
+.ghostlabs-fs-follow--secondary {
+	background-color: var(--ghostlabs-fs-btn-bg-secondary);
+	color: var(--ghostlabs-fs-btn-text-secondary);
+	border: 1px solid var(--ghostlabs-fs-btn-border-secondary);
+
+	.ghostlabs-fs-follow__count {
+		color: var(--ghostlabs-fs-btn-text-secondary);
+		opacity: 0.7;
+	}
+}
+
+.ghostlabs-fs-follow--outline {
+	background-color: transparent;
+	color: var(--ghostlabs-fs-btn-bg);
+	border: 2px solid var(--ghostlabs-fs-btn-bg);
+
+	.ghostlabs-fs-follow__count {
+		color: var(--ghostlabs-fs-btn-bg);
+		opacity: 0.7;
+	}
+}
+
+.ghostlabs-fs-follow--minimal {
+	background-color: transparent;
+	color: var(--ghostlabs-fs-btn-bg);
+	border: none;
+	padding-left: 0;
+	padding-right: 0;
+
+	.ghostlabs-fs-follow__count {
+		color: var(--ghostlabs-fs-btn-bg);
+		opacity: 0.7;
+	}
+}
+
+.ghostlabs-fs-follow--small {
+	padding: 6px 12px;
+	font-size: 0.8125rem;
+
+	.ghostlabs-fs-follow__icon {
+		width: 14px;
+		height: 14px;
+	}
+}
+
+.ghostlabs-fs-follow--medium {
+	padding: 8px 16px;
+	font-size: 0.875rem;
+
+	.ghostlabs-fs-follow__icon {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+.ghostlabs-fs-follow--large {
+	padding: 10px 20px;
+	font-size: 1rem;
+
+	.ghostlabs-fs-follow__icon {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.ghostlabs-fs-follow__icon {
+	flex-shrink: 0;
+	display: block;
+}
+
+.ghostlabs-fs-follow__label {
+	white-space: nowrap;
+}
+
+.ghostlabs-fs-follow__count {
+	color: var(--ghostlabs-fs-btn-count);
+	font-weight: 400;
+	white-space: nowrap;
+
+	// A separator dot drawn rather than typed.
+	//
+	// ⚠ Do not restore `content: "\00b7"`, or any other non-ASCII character or escape.
+	//   Sass decodes the escape and emits a literal U+00B7, and any non-ASCII byte in the
+	//   output makes Sass prepend a UTF-8 BOM to the file. WordPress inlines this
+	//   stylesheet into a <style> element (wp_maybe_inline_styles, for any block style
+	//   under styles_inline_size_limit), and inside an element a BOM is not an encoding
+	//   mark — it is a character. It joins the first selector, so the first rule never
+	//   matches, and the first rule is the only place every --ghostlabs-fs-btn-* custom
+	//   property is declared. The button loses its background, its text colour and this
+	//   dot's colour, and renders as bare black text on the page background.
+	//
+	//   It fails only when inlined: served as a separate file the BOM is consumed as an
+	//   encoding mark and everything works, which is why it survived the E2E suite.
+	&::before {
+		content: "";
+		display: inline-block;
+		width: 0.22em;
+		height: 0.22em;
+		border-radius: 50%;
+		background: currentColor;
+		vertical-align: middle;
+		margin-right: 0.35em;
+	}
+}

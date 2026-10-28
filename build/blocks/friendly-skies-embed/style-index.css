@@ -1,0 +1,229 @@
+.ghostlabs-fs-embed {
+  background-color: var(--ghostlabs-fs-bg);
+  border: 1px solid var(--ghostlabs-fs-border);
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.ghostlabs-fs-embed--theme-integrated {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  max-width: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+.ghostlabs-fs-embed--error {
+  text-align: center;
+  padding: 24px 16px;
+}
+.ghostlabs-fs-embed--error p {
+  margin: 0 0 8px;
+  color: var(--ghostlabs-fs-text-secondary);
+}
+
+.ghostlabs-fs-embed__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.ghostlabs-fs-embed__link:hover {
+  text-decoration: none;
+}
+
+.ghostlabs-fs-embed__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ghostlabs-fs-embed__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.ghostlabs-fs-embed__author {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ghostlabs-fs-embed__display-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ghostlabs-fs-embed__handle {
+  font-size: 0.875rem;
+  color: var(--ghostlabs-fs-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ghostlabs-fs-embed__content {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  word-break: break-word;
+  white-space: pre-wrap;
+  margin-bottom: 12px;
+}
+
+.ghostlabs-fs-embed__images {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ghostlabs-fs-embed__images--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.ghostlabs-fs-embed__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.ghostlabs-fs-embed__images--grid .ghostlabs-fs-embed__image {
+  aspect-ratio: 1;
+}
+
+.ghostlabs-fs-embed__video {
+  position: relative;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: oklch(0% 0 0deg);
+}
+
+.ghostlabs-fs-embed__video-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ghostlabs-fs-embed__video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: oklch(0% 0 0deg / 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: oklch(100% 0 0deg);
+  font-size: 1.25rem;
+}
+
+.ghostlabs-fs-embed__external {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ghostlabs-fs-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+.ghostlabs-fs-embed__external:hover {
+  background: var(--ghostlabs-fs-hover);
+  text-decoration: none;
+}
+
+.ghostlabs-fs-embed__external-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1.91/1;
+  object-fit: cover;
+}
+
+.ghostlabs-fs-embed__external-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+}
+
+.ghostlabs-fs-embed__external-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ghostlabs-fs-embed__external-description {
+  font-size: 0.8125rem;
+  color: var(--ghostlabs-fs-text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ghostlabs-fs-embed__external-uri {
+  font-size: 0.8125rem;
+  color: var(--ghostlabs-fs-text-secondary);
+}
+
+.ghostlabs-fs-embed__quote {
+  border: 1px solid var(--ghostlabs-fs-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.ghostlabs-fs-embed__quote-author {
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+}
+
+.ghostlabs-fs-embed__quote-text {
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ghostlabs-fs-embed__engagement {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ghostlabs-fs-border);
+  margin-bottom: 4px;
+}
+
+.ghostlabs-fs-embed__stat {
+  font-size: 0.8125rem;
+  color: var(--ghostlabs-fs-engagement);
+}
+.ghostlabs-fs-embed__stat strong {
+  color: var(--ghostlabs-fs-text);
+  font-weight: 700;
+}
+
+.ghostlabs-fs-embed__timestamp {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--ghostlabs-fs-text-secondary);
+  padding-top: 4px;
+}

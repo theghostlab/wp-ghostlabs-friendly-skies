@@ -1,0 +1,19 @@
+.ghostlabs-fs-feed--list {
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+
+	.ghostlabs-fs-feed-post {
+		padding: 16px 0;
+		border-bottom: 1px solid var(--ghostlabs-fs-border);
+
+		&:first-child {
+			padding-top: 0;
+		}
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+	}
+}
