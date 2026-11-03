@@ -1,7 +1,7 @@
 {
   "name": "friendly-skies-blocks",
   "version": "0.0.1",
-  "description": "Gutenberg block sources for Friendly Skies — shared by the free and pro editions",
+  "description": "Block sources for Friendly Skies — shared by the free and pro editions",
   "license": "GPL-2.0-or-later",
   "author": "GhostLabs",
   "private": true,

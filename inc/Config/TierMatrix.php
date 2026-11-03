@@ -84,7 +84,7 @@ final class TierMatrix
         return [
             [
                 'key'   => 'blocks',
-                'label' => __('The Bluesky Post, Profile Card, Follow Button and Thread blocks', 'ghostlabs-friendly-skies'),
+                'label' => __('The Bluesky Post, Profile Card, Follow Button and Threaded blocks', 'ghostlabs-friendly-skies'),
                 'free'  => true,
                 'paid'  => true,
             ],

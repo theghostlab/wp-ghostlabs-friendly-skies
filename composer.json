@@ -1,11 +1,10 @@
 {
 	"name": "ghostlabs/friendly-skies-free",
-	"description": "Display Bluesky posts, profiles, feeds and threads on your WordPress site — free edition",
+	"description": "Display Bluesky posts, profiles, feeds and conversations on your WordPress site — free edition",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"php": ">=8.1",
-		"ghostlabs/wp-kit": "^1.0"
+		"php": ">=8.1"
 	},
 	"autoload": {
 		"psr-4": {

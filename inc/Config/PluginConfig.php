@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace GHOSTLABS\FRIENDLY_SKIES\Config;
 
-use GhostLabs\WPKit\Contracts\PluginIdentityInterface;
-
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Static plugin metadata for the free edition.
  *
- * It implements wp-kit's `PluginIdentityInterface`, which is GPL-2.0-or-later and safe to
- * ship, and is narrow enough to implement here directly.
+ * It implements no package contract: this edition ships no GhostLabs package (WordPress.org,
+ * 2026-10-28).
  *
  * `$domain` and `$slug` are the same in both editions. `shared/inc/Service/OptionsService.php`
  * builds the wp_option key from them, so changing either would orphan the stored options
@@ -20,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @package GhostLabsFriendlySkies
  */
-final class PluginConfig implements PluginIdentityInterface
+final class PluginConfig
 {
 	public static string $domain = 'ghostlabs';
 	public static string $slug = 'friendly-skies';
@@ -67,7 +65,7 @@ final class PluginConfig implements PluginIdentityInterface
 		return sprintf('%s-%s-%s', self::$domain, self::$slug, self::$tier);
 	}
 
-	// --- PluginIdentityInterface -------------------------------------------------
+	// --- Identity ----------------------------------------------------------------
 
 	public function getPluginFile(): string
 	{

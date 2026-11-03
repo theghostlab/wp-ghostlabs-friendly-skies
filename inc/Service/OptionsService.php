@@ -3,11 +3,18 @@
 namespace GHOSTLABS\FRIENDLY_SKIES\Service;
 
 use GHOSTLABS\FRIENDLY_SKIES\Config\PluginConfig;
-use GhostLabs\WPKit\Contracts\MutableOptionsServiceInterface;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class OptionsService implements MutableOptionsServiceInterface
+/**
+ * The plugin's options, one wp_option keyed by `PluginConfig::$domain` and `$slug`, so both editions read
+ * the same store.
+ *
+ * ⚠️ **No package contract here.** A shared class implementing a package's interface fatals on load in any
+ * edition that does not ship the package (WordPress.org, 2026-10-28). An edition that needs a contract adds
+ * it in its own tree, by extending this class.
+ */
+class OptionsService
 {
 	private static function optionKey(): string {
 		return PluginConfig::$domain . '_' . PluginConfig::$slug . '_options';

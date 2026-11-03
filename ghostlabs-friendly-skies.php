@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       GhostLabs Friendly Skies
  * Plugin URI:        https://theghostlab.io/friendly-skies
- * Description:       Display Bluesky posts, profiles, feeds and threads on your WordPress site. Five Gutenberg blocks, no Bluesky account required.
+ * Description:       Display Bluesky posts, profiles, feeds and conversations on your WordPress site. Five blocks, no Bluesky account required.
  * Version:           1.0.0
  * Requires at least: 7.1
  * Requires PHP:      8.1

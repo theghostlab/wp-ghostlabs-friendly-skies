@@ -3,10 +3,10 @@
   "apiVersion": 3,
   "name": "ghostlabs/friendly-skies-thread",
   "version": "0.1.0",
-  "title": "Friendly Skies: Thread",
+  "title": "Friendly Skies: Threaded",
   "category": "embed",
   "icon": "format-chat",
-  "description": "Display a Bluesky thread with replies and visual threading.",
+  "description": "Display a Bluesky conversation in threaded form.",
   "keywords": [
     "bluesky",
     "thread",

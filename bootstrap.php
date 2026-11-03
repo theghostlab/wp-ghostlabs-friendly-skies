@@ -14,23 +14,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // The version-gated packages this edition ships (newest copy of each wins across all GhostLabs
 // plugins). They load before the Composer autoloader so each registry can elect the newest copy on
-// the site before any GhostLabs class is touched.
+// the site before any GhostLabs class is touched. An edition that ships no package has a packages.php
+// that loads nothing.
 //
 // Each tier ships its own packages.php, so what loads is what the build carries, and nothing here
 // asks which build this is. ⚠️ `__DIR__`, never a path built from the edition: on the request that
 // activates one edition beside the other, both headers load and both resolve to the winner's
 // bootstrap.php, so the winner's packages load with it.
 //
-// Activation is the one request where the version gate cannot do its job, and packages.php covers
-// it. The packages register at include time and hold their election on `plugins_loaded` at priority
-// 0, which is sound because plugin files are all included before that fires — on a normal request.
-// `activate_plugin()` includes this file mid-request, long after `plugins_loaded` has passed, so the
-// election never runs, no autoloader is installed, and the first `GhostLabs\WPKit\` symbol touched
-// is a fatal. `Kernel::activate()` touches one immediately — `OptionsService implements
-// MutableOptionsServiceInterface`. Registering the bundled copy directly is the right fallback
-// rather than a workaround: an election only matters when there is more than one copy to choose
-// between, and if another plugin's copy already won at priority 0 its classes resolve and the
-// guards do nothing.
+// Activation is the one request where the version gate cannot do its job, and the packages.php of an
+// edition that ships any covers it. The packages register at include time and hold their election on
+// `plugins_loaded` at priority 0, which is sound because plugin files are all included before that
+// fires — on a normal request. `activate_plugin()` includes this file mid-request, long after
+// `plugins_loaded` has passed, so the election never runs, no autoloader is installed, and the first
+// GhostLabs package symbol touched is a fatal. Registering the bundled copy directly is the right fallback rather than
+// a workaround: an election only matters when there is more than one copy to choose between, and if
+// another plugin's copy already won at priority 0 its classes resolve and the guards do nothing.
 require_once __DIR__ . '/packages.php';
 
 // Load Composer autoloader.
@@ -43,14 +42,9 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	return;
 }
 
-// Load text domain.
-add_action( 'init', function () {
-	load_plugin_textdomain(
-		'ghostlabs-friendly-skies',
-		false,
-		dirname( GHOSTLABS_FRIENDLY_SKIES_PLUGIN_SLUG ) . '/languages'
-	);
-} );
+// ⚠️ No text domain loading here. WordPress loads a .org-hosted plugin's translations itself since
+// 4.6, and the call was a finding in the 2026-10-28 review. An edition distributed any other way
+// loads its own from its own tree.
 
 // Boot the plugin.
 use GHOSTLABS\FRIENDLY_SKIES\Kernel;

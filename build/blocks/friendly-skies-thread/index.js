@@ -171,7 +171,7 @@ function Edit({
   const onSubmit = () => {
     const trimmed = inputValue.trim();
     if (!trimmed) {
-      setError((0,external_wp_i18n_namespaceObject.__)('Please enter a Bluesky thread URL.', 'ghostlabs-friendly-skies'));
+      setError((0,external_wp_i18n_namespaceObject.__)('Please enter a Bluesky post URL.', 'ghostlabs-friendly-skies'));
       return;
     }
     if (!URL_PATTERN.test(trimmed)) {
@@ -198,16 +198,16 @@ function Edit({
           content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
             children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
               className: "ghostlabs-fs-block-guide__heading",
-              children: (0,external_wp_i18n_namespaceObject.__)('Bluesky Thread', 'ghostlabs-friendly-skies')
+              children: (0,external_wp_i18n_namespaceObject.__)('Threaded', 'ghostlabs-friendly-skies')
             }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
-              children: (0,external_wp_i18n_namespaceObject.__)('Embed a full Bluesky thread on your site. Paste the URL of any post and its replies will be displayed.', 'ghostlabs-friendly-skies')
+              children: (0,external_wp_i18n_namespaceObject.__)('Show a whole Bluesky conversation on your site, in threaded form. Paste the URL of any post and its replies will be displayed.', 'ghostlabs-friendly-skies')
             })]
           })
         }, {
           content: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
             children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("h1", {
               className: "ghostlabs-fs-block-guide__heading",
-              children: (0,external_wp_i18n_namespaceObject.__)('Thread Options', 'ghostlabs-friendly-skies')
+              children: (0,external_wp_i18n_namespaceObject.__)('Threaded Options', 'ghostlabs-friendly-skies')
             }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
               children: (0,external_wp_i18n_namespaceObject.__)('Control the reply depth, filter to only OP replies, and set a collapse threshold in the sidebar. Choose a theme and toggle engagement counts.', 'ghostlabs-friendly-skies')
             })]
@@ -216,10 +216,10 @@ function Edit({
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.Placeholder, {
         className: "ghostlabs-fs-thread-placeholder",
         icon: "format-chat",
-        label: (0,external_wp_i18n_namespaceObject.__)('Bluesky Thread', 'ghostlabs-friendly-skies'),
+        label: (0,external_wp_i18n_namespaceObject.__)('Threaded', 'ghostlabs-friendly-skies'),
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SetupInstructions, {
           id: instructionsId,
-          children: (0,external_wp_i18n_namespaceObject.__)('Enter a Bluesky post URL to display its thread.', 'ghostlabs-friendly-skies')
+          children: (0,external_wp_i18n_namespaceObject.__)('Enter a Bluesky post URL to display it with its replies, in threaded form.', 'ghostlabs-friendly-skies')
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
           className: "ghostlabs-fs-thread-placeholder__input-row",
           children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SetupTextField, {
@@ -234,7 +234,7 @@ function Edit({
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
             variant: "primary",
             onClick: onSubmit,
-            children: (0,external_wp_i18n_namespaceObject.__)('Load Thread', 'ghostlabs-friendly-skies')
+            children: (0,external_wp_i18n_namespaceObject.__)('Load Conversation', 'ghostlabs-friendly-skies')
           })]
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(SetupError, {
           id: errorId,
@@ -252,7 +252,7 @@ function Edit({
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.TextControl, {
           __nextHasNoMarginBottom: true,
           __next40pxDefaultSize: true,
-          label: (0,external_wp_i18n_namespaceObject.__)('Thread URL', 'ghostlabs-friendly-skies'),
+          label: (0,external_wp_i18n_namespaceObject.__)('Bluesky post URL', 'ghostlabs-friendly-skies'),
           value: url,
           onChange: val => setAttributes({
             url: val
@@ -260,7 +260,7 @@ function Edit({
           placeholder: "https://bsky.app/profile/user.bsky.social/post/abc123"
         })
       }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
-        title: (0,external_wp_i18n_namespaceObject.__)('Thread', 'ghostlabs-friendly-skies'),
+        title: (0,external_wp_i18n_namespaceObject.__)('Threaded', 'ghostlabs-friendly-skies'),
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.RangeControl, {
           __nextHasNoMarginBottom: true,
           label: (0,external_wp_i18n_namespaceObject.__)('Reply Depth', 'ghostlabs-friendly-skies'),

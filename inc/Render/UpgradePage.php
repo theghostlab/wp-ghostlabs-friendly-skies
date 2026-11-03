@@ -63,7 +63,7 @@ final class UpgradePage
 
         printf(
             '<p>%s</p>',
-            esc_html__('All five blocks — Bluesky Post, Profile Card, Follow Button, Feed and Thread — are in this plugin, and they stay free.', 'ghostlabs-friendly-skies')
+            esc_html__('All five blocks — Bluesky Post, Profile Card, Follow Button, Feed and Threaded — are in this plugin, and they stay free.', 'ghostlabs-friendly-skies')
         );
 
         printf(

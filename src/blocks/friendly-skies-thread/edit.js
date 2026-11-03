@@ -41,7 +41,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		const trimmed = inputValue.trim();
 
 		if ( ! trimmed ) {
-			setError( __( 'Please enter a Bluesky thread URL.', 'ghostlabs-friendly-skies' ) );
+			setError( __( 'Please enter a Bluesky post URL.', 'ghostlabs-friendly-skies' ) );
 			return;
 		}
 
@@ -70,15 +70,15 @@ export default function Edit( { attributes, setAttributes } ) {
 						{
 							content: (
 								<>
-									<h1 className="ghostlabs-fs-block-guide__heading">{ __( 'Bluesky Thread', 'ghostlabs-friendly-skies' ) }</h1>
-									<p>{ __( 'Embed a full Bluesky thread on your site. Paste the URL of any post and its replies will be displayed.', 'ghostlabs-friendly-skies' ) }</p>
+									<h1 className="ghostlabs-fs-block-guide__heading">{ __( 'Threaded', 'ghostlabs-friendly-skies' ) }</h1>
+									<p>{ __( 'Show a whole Bluesky conversation on your site, in threaded form. Paste the URL of any post and its replies will be displayed.', 'ghostlabs-friendly-skies' ) }</p>
 								</>
 							),
 						},
 						{
 							content: (
 								<>
-									<h1 className="ghostlabs-fs-block-guide__heading">{ __( 'Thread Options', 'ghostlabs-friendly-skies' ) }</h1>
+									<h1 className="ghostlabs-fs-block-guide__heading">{ __( 'Threaded Options', 'ghostlabs-friendly-skies' ) }</h1>
 									<p>{ __( 'Control the reply depth, filter to only OP replies, and set a collapse threshold in the sidebar. Choose a theme and toggle engagement counts.', 'ghostlabs-friendly-skies' ) }</p>
 								</>
 							),
@@ -88,9 +88,9 @@ export default function Edit( { attributes, setAttributes } ) {
 				<Placeholder
 					className="ghostlabs-fs-thread-placeholder"
 					icon="format-chat"
-					label={ __( 'Bluesky Thread', 'ghostlabs-friendly-skies' ) }
+					label={ __( 'Threaded', 'ghostlabs-friendly-skies' ) }
 				>
-					<SetupInstructions id={ instructionsId }>{ __( 'Enter a Bluesky post URL to display its thread.', 'ghostlabs-friendly-skies' ) }</SetupInstructions>
+					<SetupInstructions id={ instructionsId }>{ __( 'Enter a Bluesky post URL to display it with its replies, in threaded form.', 'ghostlabs-friendly-skies' ) }</SetupInstructions>
 					<div className="ghostlabs-fs-thread-placeholder__input-row">
 						<SetupTextField
 							label={ __( 'Bluesky post URL', 'ghostlabs-friendly-skies' ) }
@@ -106,7 +106,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							variant="primary"
 							onClick={ onSubmit }
 						>
-							{ __( 'Load Thread', 'ghostlabs-friendly-skies' ) }
+							{ __( 'Load Conversation', 'ghostlabs-friendly-skies' ) }
 						</Button>
 					</div>
 					<SetupError id={ errorId } className="ghostlabs-fs-thread-placeholder__error">{ error }</SetupError>
@@ -122,14 +122,14 @@ export default function Edit( { attributes, setAttributes } ) {
 					<TextControl
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
-						label={ __( 'Thread URL', 'ghostlabs-friendly-skies' ) }
+						label={ __( 'Bluesky post URL', 'ghostlabs-friendly-skies' ) }
 						value={ url }
 						onChange={ ( val ) => setAttributes( { url: val } ) }
 						placeholder="https://bsky.app/profile/user.bsky.social/post/abc123"
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Thread', 'ghostlabs-friendly-skies' ) }>
+				<PanelBody title={ __( 'Threaded', 'ghostlabs-friendly-skies' ) }>
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __( 'Reply Depth', 'ghostlabs-friendly-skies' ) }

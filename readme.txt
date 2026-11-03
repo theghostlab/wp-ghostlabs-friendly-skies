@@ -1,4 +1,4 @@
-=== GhostLabs Friendly Skies – Bluesky Feeds, Embeds & Threads ===
+=== GhostLabs Friendly Skies – Feeds & Embeds for Bluesky ===
 Contributors: ghostlabs
 Tags: bluesky, bluesky-feed, atproto, social-feed, embed
 Requires at least: 7.1
@@ -8,25 +8,21 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Five blocks for Bluesky: feeds, posts, threads, profiles and follow buttons. Server-rendered, cached, no account needed.
+Five blocks for Bluesky: feeds, posts, conversations, profiles and follow buttons. Server-rendered, cached, no account needed.
 
 == Description ==
 
-Friendly Skies puts Bluesky on your WordPress site as five native Gutenberg blocks. Place them
+Friendly Skies puts Bluesky on your WordPress site as five native blocks. Place them
 where you want them — in a post, a template part, a sidebar — and they render on your server as
 ordinary HTML.
-
-WordPress core can embed a single Bluesky post, and it does it with an iframe served from
-Bluesky. That is one block, one post, and a third-party script on every page view. This is five
-blocks, rendered by your site, cached in a transient, and styled by CSS you can override.
 
 = The five blocks =
 
 * **Post** — paste a Bluesky post URL. Author, text, images, video, quote posts, link cards and
   engagement counts, rendered as HTML.
 * **Feed** — a stream of posts, in a List or Grid layout.
-* **Thread** — a whole conversation, with reply indentation, a depth limit and a collapse
-  threshold. Nothing else in WordPress does this.
+* **Threaded** — a whole conversation, with reply indentation, a depth limit and a collapse
+  threshold.
 * **Profile Card** — avatar, banner, bio and stats, in Full, Compact or Minimal styles.
 * **Follow Button** — a styled link to a profile, with an optional live follower count.
 
@@ -74,10 +70,10 @@ render what you asked it to show. The request contains the handle, post URL, fee
 put in the block, and nothing about your site or your visitors. It is made by your server, not
 by your reader's browser, and the response is cached. This happens whenever a page containing a
 block is rendered, and whenever a block is previewed in the block editor (your server renders
-the preview the same way), if the cache has expired. The one exception is the Follow button: it
-contacts Bluesky only when it is set to show a follower count, and otherwise contacts nothing.
+the preview the same way), if the cache has expired. The Follow button contacts Bluesky only when
+it is set to show a follower count, and otherwise contacts nothing.
 
-Images are the one thing a browser fetches from Bluesky itself. Avatars, profile banners, post
+Images are fetched from Bluesky itself. Avatars, profile banners, post
 photos, and link-card and video thumbnails are shown from Bluesky's own image addresses, so when a
 page with a block loads, your reader's browser requests those images from Bluesky, which receives
 the reader's IP address, browser details and the site they are on, like any image request. The
@@ -108,7 +104,7 @@ GhostLabs privacy policy: https://theghostlab.io/privacy-policy
 3. In a post, a page or a template, open the block inserter and search for "bluesky". Choose one of
    the five Friendly Skies blocks.
 4. Give it what it asks for: a handle for the Feed, Profile Card and Follow Button blocks, or a
-   post URL for the Post and Thread blocks. There is nothing to connect and no account to sign in to.
+   post URL for the Post and Threaded blocks. There is nothing to connect and no account to sign in to.
 5. Optional: **Settings → Friendly Skies** sets how long a response from Bluesky is reused before it
    is fetched again.
 
@@ -122,8 +118,8 @@ Autoblue or ATmosphere, which are built for that direction.
 
 = Do I need a Bluesky account? =
 
-No. The free blocks read public data, so you can display any public account, thread or post
-without connecting anything.
+No. The free blocks read public data, so you can display any public account, in threaded form or
+as a post without connecting anything.
 
 = Does this load anything from Bluesky in my visitor's browser? =
 
@@ -173,11 +169,10 @@ system schemes, and are styled with CSS custom properties you can override.
 == Screenshots ==
 
 1. All five blocks on one page.
-2. The Thread block rendering a real conversation, with reply indentation.
+2. The Threaded block rendering a real conversation, with reply indentation.
 3. The block inserter, searched for "bluesky".
-4. Core's iframe embed beside a Friendly Skies block, view-source side by side.
-5. The Feed block in its List layout, showing one Bluesky account's posts.
-6. The same feed in the Grid layout. Pro adds the Masonry, Carousel, Highlight and Ticker layouts, and Search, Custom Feed and Bluesky list sources.
+4. The Feed block in its List layout, showing one Bluesky account's posts.
+5. The same feed in the Grid layout. Pro adds the Masonry, Carousel, Highlight and Ticker layouts, and Search, Custom Feed and Bluesky list sources.
 
 == Source code ==
 
@@ -198,4 +193,4 @@ sources minified, which `GHOSTLABS_MINIFY=1 pnpm run build` produces.
 == Upgrade Notice ==
 
 = 1.0.0 =
-First release. Five blocks that show Bluesky posts, feeds, threads, profiles and follow buttons, rendered on your server. Requires WordPress 7.1 and PHP 8.1.
+First release. Five blocks that show Bluesky posts, feeds, conversations, profiles and follow buttons, rendered on your server. Requires WordPress 7.1 and PHP 8.1.
