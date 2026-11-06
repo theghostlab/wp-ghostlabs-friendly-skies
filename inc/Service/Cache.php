@@ -91,7 +91,12 @@ class Cache
     {
         $default = self::TTL_MAP[$type] ?? self::DEFAULT_TTL;
 
+        // The unprefixed name was the filter until 1.0.1 (Plugin Check's NonPrefixedHooknameFound).
+        // A site that hooked it keeps its TTL, with a deprecation notice.
+        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- the deprecated alias itself.
+        $ttl = apply_filters_deprecated("friendly_skies_cache_ttl_{$type}", [$default], '1.0.1', "ghostlabs_friendly_skies_cache_ttl_{$type}");
+
         /** @var int */
-        return apply_filters("friendly_skies_cache_ttl_{$type}", $default);
+        return apply_filters("ghostlabs_friendly_skies_cache_ttl_{$type}", $ttl);
     }
 }

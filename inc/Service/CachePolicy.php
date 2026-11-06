@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Applies the saved cache duration to `Cache`'s per-type TTL filters.
  *
  * `Cache::getTtl()` already passes every default through
- * `friendly_skies_cache_ttl_{$type}`, so the setting is applied by filtering rather than by
+ * `ghostlabs_friendly_skies_cache_ttl_{$type}`, so the setting is applied by filtering rather than by
  * changing shared code. Nothing in `shared/` knows this screen exists.
  *
  * @package GhostLabsFriendlySkies
@@ -55,7 +55,7 @@ final class CachePolicy
 
         foreach (self::GOVERNED_TYPES as $type) {
             add_filter(
-                "friendly_skies_cache_ttl_{$type}",
+                "ghostlabs_friendly_skies_cache_ttl_{$type}",
                 static fn(): int => $ttl,
                 // Late, so a site's own filter in a theme or mu-plugin still wins. This is a
                 // convenience for people who will not write a filter; it should not overrule

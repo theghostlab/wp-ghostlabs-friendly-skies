@@ -96,7 +96,7 @@ class FollowButtonRenderer
         return sprintf(
             '<span class="ghostlabs-fs-follow__count">%s<span class="ghostlabs-fs-visually-hidden"> %s</span></span>',
             esc_html($this->formatCount($count)),
-            esc_html__('followers', 'ghostlabs-friendly-skies'),
+            esc_html(_n('follower', 'followers', $count, 'ghostlabs-friendly-skies')),
         );
     }
 

@@ -4,7 +4,7 @@ Tags: bluesky, bluesky-feed, atproto, social-feed, embed
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -187,10 +187,17 @@ sources minified, which `GHOSTLABS_MINIFY=1 pnpm run build` produces.
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed: a count of one reads in the singular ("1 reply", "1 follower", "Show 1 more reply").
+* Changed: the cache duration filters are now `ghostlabs_friendly_skies_cache_ttl_{$type}`. The old `friendly_skies_cache_ttl_{$type}` names still work and are deprecated.
+
 = 1.0.0 =
 * First release.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Counts of one now read in the singular. The cache duration filters take the ghostlabs_ prefix; the old names still work.
 
 = 1.0.0 =
 First release. Five blocks that show Bluesky posts, feeds, conversations, profiles and follow buttons, rendered on your server. Requires WordPress 7.1 and PHP 8.1.

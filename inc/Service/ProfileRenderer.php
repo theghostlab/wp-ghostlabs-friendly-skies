@@ -173,11 +173,11 @@ class ProfileRenderer
         return sprintf(
             '<ul class="ghostlabs-fs-profile__stats"><li class="ghostlabs-fs-profile__stat"><strong>%s</strong> %s</li><li class="ghostlabs-fs-profile__stat"><strong>%s</strong> %s</li><li class="ghostlabs-fs-profile__stat"><strong>%s</strong> %s</li></ul>',
             esc_html($this->formatCount($followers)),
-            esc_html__('followers', 'ghostlabs-friendly-skies'),
+            esc_html(_n('follower', 'followers', $followers, 'ghostlabs-friendly-skies')),
             esc_html($this->formatCount($following)),
             esc_html__('following', 'ghostlabs-friendly-skies'),
             esc_html($this->formatCount($posts)),
-            esc_html__('posts', 'ghostlabs-friendly-skies'),
+            esc_html(_n('post', 'posts', $posts, 'ghostlabs-friendly-skies')),
         );
     }
 

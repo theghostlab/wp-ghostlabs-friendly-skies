@@ -292,11 +292,12 @@ trait RenderHelper
             '<ul class="%1$s__engagement"><li class="%1$s__stat %1$s__stat--replies"><strong>%2$s</strong> %3$s</li><li class="%1$s__stat %1$s__stat--reposts"><strong>%4$s</strong> %5$s</li><li class="%1$s__stat %1$s__stat--likes"><strong>%6$s</strong> %7$s</li></ul>',
             esc_attr($p),
             esc_html($this->formatCount($replies)),
-            esc_html__('replies', 'ghostlabs-friendly-skies'),
+            // The plural form is chosen by the real count, not the abbreviated "1.2K".
+            esc_html(_n('reply', 'replies', $replies, 'ghostlabs-friendly-skies')),
             esc_html($this->formatCount($reposts)),
-            esc_html__('reposts', 'ghostlabs-friendly-skies'),
+            esc_html(_n('repost', 'reposts', $reposts, 'ghostlabs-friendly-skies')),
             esc_html($this->formatCount($likes)),
-            esc_html__('likes', 'ghostlabs-friendly-skies'),
+            esc_html(_n('like', 'likes', $likes, 'ghostlabs-friendly-skies')),
         );
     }
 

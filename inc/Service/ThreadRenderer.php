@@ -92,7 +92,7 @@ class ThreadRenderer
         if ($needsCollapse) {
             $remainingCount = $totalPosts - $collapseThreshold;
             /* translators: %d: number of hidden replies. */
-            $labelMore = sprintf(\__('Show %d more replies', 'ghostlabs-friendly-skies'), $remainingCount);
+            $labelMore = sprintf(\_n('Show %d more reply', 'Show %d more replies', $remainingCount, 'ghostlabs-friendly-skies'), $remainingCount);
             $labelLess = \__('Show less', 'ghostlabs-friendly-skies');
 
             $html .= sprintf(

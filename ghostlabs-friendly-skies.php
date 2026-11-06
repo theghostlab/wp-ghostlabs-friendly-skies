@@ -3,7 +3,7 @@
  * Plugin Name:       GhostLabs Friendly Skies
  * Plugin URI:        https://theghostlab.io/friendly-skies
  * Description:       Display Bluesky posts, profiles, feeds and conversations on your WordPress site. Five blocks, no Bluesky account required.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 7.1
  * Requires PHP:      8.1
  * Author:            GhostLabs
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Keep the version's define() call in exactly its current shape: the command center's version
 // stamp rewrites it.
 defined( 'GHOSTLABS_FRIENDLY_SKIES_EDITION' ) || define( 'GHOSTLABS_FRIENDLY_SKIES_EDITION', 'free' );
-defined( 'GHOSTLABS_FRIENDLY_SKIES_VERSION' ) || define( 'GHOSTLABS_FRIENDLY_SKIES_VERSION', '1.0.0' );
+defined( 'GHOSTLABS_FRIENDLY_SKIES_VERSION' ) || define( 'GHOSTLABS_FRIENDLY_SKIES_VERSION', '1.0.1' );
 defined( 'GHOSTLABS_FRIENDLY_SKIES_PLUGIN_PATH' ) || define( 'GHOSTLABS_FRIENDLY_SKIES_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 defined( 'GHOSTLABS_FRIENDLY_SKIES_PLUGIN_URL' ) || define( 'GHOSTLABS_FRIENDLY_SKIES_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 defined( 'GHOSTLABS_FRIENDLY_SKIES_PLUGIN_SLUG' ) || define( 'GHOSTLABS_FRIENDLY_SKIES_PLUGIN_SLUG', plugin_basename( __FILE__ ) );
