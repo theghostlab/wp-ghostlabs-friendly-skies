@@ -389,7 +389,21 @@ class BlueskyService
             return new \WP_Error($emptyCode, $emptyMessage);
         }
 
-        $posts = array_map(fn(array $item): array => $item['post'] ?? $item, $items);
+        // A feed item wraps its post and carries what makes it a reply or a repost beside it, not
+        // inside it. The Feed block's filters read those off the post, so they travel with it.
+        $posts = array_map(function (array $item): array {
+            $post = $item['post'] ?? $item;
+
+            if (isset($item['post'])) {
+                foreach (['reply', 'reason'] as $marker) {
+                    if (isset($item[$marker])) {
+                        $post[$marker] = $item[$marker];
+                    }
+                }
+            }
+
+            return $post;
+        }, $items);
 
         $result = [
             'posts' => $posts,

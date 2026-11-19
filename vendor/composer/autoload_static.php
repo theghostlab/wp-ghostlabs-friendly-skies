@@ -41,6 +41,7 @@ class ComposerStaticInitGhostlabsFriendlySkies
         'GHOSTLABS\\FRIENDLY_SKIES\\Render\\UpgradePanel' => __DIR__ . '/../..' . '/inc/Render/UpgradePanel.php',
         'GHOSTLABS\\FRIENDLY_SKIES\\Service\\ApiClient' => __DIR__ . '/../..' . '/inc/Service/ApiClient.php',
         'GHOSTLABS\\FRIENDLY_SKIES\\Service\\BlockFactory' => __DIR__ . '/../..' . '/inc/Service/BlockFactory.php',
+        'GHOSTLABS\\FRIENDLY_SKIES\\Service\\BlockWrapper' => __DIR__ . '/../..' . '/inc/Service/BlockWrapper.php',
         'GHOSTLABS\\FRIENDLY_SKIES\\Service\\BlueskyService' => __DIR__ . '/../..' . '/inc/Service/BlueskyService.php',
         'GHOSTLABS\\FRIENDLY_SKIES\\Service\\Cache' => __DIR__ . '/../..' . '/inc/Service/Cache.php',
         'GHOSTLABS\\FRIENDLY_SKIES\\Service\\CachePolicy' => __DIR__ . '/../..' . '/inc/Service/CachePolicy.php',

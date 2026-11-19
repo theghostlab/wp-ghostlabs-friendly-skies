@@ -4,7 +4,7 @@ Tags: bluesky, bluesky-feed, atproto, social-feed, embed
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,11 +181,17 @@ from, is published at:
 
 https://github.com/theghostlab/wp-ghostlabs-friendly-skies
 
-The compiled JavaScript and CSS in this release are readable, not minified. In that repository,
-`pnpm install --frozen-lockfile && pnpm run build` rebuilds them. Later releases may ship the same
-sources minified, which `GHOSTLABS_MINIFY=1 pnpm run build` produces.
+Released versions ship the compiled JavaScript and CSS minified, which `pnpm install
+--frozen-lockfile && GHOSTLABS_MINIFY=1 pnpm run build` produces from those sources. `pnpm run build`
+alone builds the same sources readable.
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed: on sites with a persistent object cache (Redis or Memcached), cached Bluesky responses now expire. Before, a block could keep showing what it fetched first.
+* Fixed: the Feed block's "Include replies" setting now shows replies, and turning "Include reposts" off now hides reposts.
+* Fixed: the Profile Card and Threaded blocks keep their alignment and Additional CSS class on the page.
+* Fixed: a Post, Feed or Threaded post that links to Bluesky no longer holds a second link inside it, which cut the post's own link short. Its mentions, links and hashtags now show as text within it, as does the Post block's link card.
 
 = 1.0.1 =
 * Fixed: a count of one reads in the singular ("1 reply", "1 follower", "Show 1 more reply").
@@ -195,6 +201,9 @@ sources minified, which `GHOSTLABS_MINIFY=1 pnpm run build` produces.
 * First release.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Cached Bluesky responses now expire on sites with a persistent object cache. Fixes the Feed block's reply and repost settings, Profile Card and Threaded alignment, and links inside linked posts.
 
 = 1.0.1 =
 Counts of one now read in the singular. The cache duration filters take the ghostlabs_ prefix; the old names still work.

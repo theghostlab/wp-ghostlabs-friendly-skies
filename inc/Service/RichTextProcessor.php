@@ -11,8 +11,12 @@ class RichTextProcessor
      * @param bool $newTabHint The blocks' hidden "(opens in a new tab)". ⚠️ Off for stored content
      *                         (the importer): the class that hides it ships only with the blocks'
      *                         stylesheet, so in a post, a feed or an excerpt it would read as text.
+     * @param bool $links      ⚠️ Off where the text already sits inside a link: an `<a>` inside an
+     *                         `<a>` is invalid, and the parser splits the outer one in two. The
+     *                         mention, link or tag then reads as plain text, and the surrounding
+     *                         link is the one thing to click.
      */
-    public static function renderFacets(string $text, array $facets, bool $newTabHint = true): string
+    public static function renderFacets(string $text, array $facets, bool $newTabHint = true, bool $links = true): string
     {
         if (empty($facets)) {
             return esc_html($text);
@@ -50,7 +54,7 @@ class RichTextProcessor
 
             $href = self::facetHref($features);
 
-            if (!empty($href)) {
+            if ($links && !empty($href)) {
                 // Hidden text, never an aria-label: a label would replace the link's own words.
                 $hint = $newTabHint
                     ? sprintf('<span class="ghostlabs-fs-visually-hidden"> %s</span>', esc_html__('(opens in a new tab)', 'ghostlabs-friendly-skies'))

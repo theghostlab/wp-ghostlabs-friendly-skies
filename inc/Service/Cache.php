@@ -44,7 +44,9 @@ class Cache
 
         $value = get_transient($prefixed);
         if ($value !== false) {
-            wp_cache_set($prefixed, $value, self::CACHE_GROUP);
+            // The transient's remaining life is unknown here, so the object-cache copy lives no
+            // longer than the shortest TTL: it can't outlast the transient it was read from.
+            wp_cache_set($prefixed, $value, self::CACHE_GROUP, min(self::TTL_MAP));
         }
 
         return $value;
@@ -53,10 +55,12 @@ class Cache
     public function set(string $key, mixed $value, string $type): bool
     {
         $prefixed = self::PREFIX . $key;
-        wp_cache_set($prefixed, $value, self::CACHE_GROUP);
+        $ttl = $this->getTtl($type);
+        // An entry with no expiry never expires in a persistent object cache (Redis, Memcached).
+        wp_cache_set($prefixed, $value, self::CACHE_GROUP, $ttl);
         set_transient(self::PREFIX . self::LAST_GOOD . $key, $value, self::LAST_GOOD_TTL);
 
-        return set_transient($prefixed, $value, $this->getTtl($type));
+        return set_transient($prefixed, $value, $ttl);
     }
 
     /** The last value `set()` stored under this key, up to a week old, or false. */

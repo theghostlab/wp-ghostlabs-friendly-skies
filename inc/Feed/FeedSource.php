@@ -28,7 +28,9 @@ interface FeedSource
     public function subject(array $attributes): string;
 
     /**
+     * @param bool $includeReplies Whether the block shows replies. Only a source whose request can
+     *                             leave them out of the answer needs it; the rest ignore it.
      * @return array{posts: list<array<string, mixed>>, cursor: string|null}|\WP_Error
      */
-    public function fetch(string $subject, int $limit): array|\WP_Error;
+    public function fetch(string $subject, int $limit, bool $includeReplies = false): array|\WP_Error;
 }

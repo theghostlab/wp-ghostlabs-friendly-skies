@@ -176,9 +176,10 @@ class ThreadRenderer
         $showEngagement = (bool) ($options['showEngagement'] ?? true);
 
         $innerContent = $this->renderAuthorHeader($author);
-        $innerContent .= $this->renderPostText($record);
+        $linked = $clickBehavior === 'open';
+        $innerContent .= $this->renderPostText($record, insideLink: $linked);
 
-        if ($clickBehavior === 'open') {
+        if ($linked) {
             $postUrl = 'https://bsky.app/profile/' . $handle . '/post/' . $rkey;
             $innerContent = sprintf(
                 '<a class="ghostlabs-fs-thread-post__link" href="%s" target="_blank" rel="noopener noreferrer">%s%s</a>',

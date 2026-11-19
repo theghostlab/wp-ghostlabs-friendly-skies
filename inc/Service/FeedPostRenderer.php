@@ -51,7 +51,7 @@ class FeedPostRenderer
         $postUrl = 'https://bsky.app/profile/' . $handle . '/post/' . $rkey;
 
         $linkContent = $this->renderAuthorHeader($author);
-        $linkContent .= $this->renderPostText($record, $truncate, $truncateLength);
+        $linkContent .= $this->renderPostText($record, $truncate, $truncateLength, insideLink: true);
 
         $content = sprintf(
             '<a class="ghostlabs-fs-feed-post__link" href="%s" target="_blank" rel="noopener noreferrer">%s%s</a>',

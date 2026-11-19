@@ -52,10 +52,11 @@ class EmbedRenderer
             : 'ghostlabs-fs-embed--card';
 
         $content = $this->renderAuthorHeader($author);
-        $content .= $this->renderPostText($record);
+        $linked = $clickBehavior === 'new-tab';
+        $content .= $this->renderPostText($record, insideLink: $linked);
 
         if (!empty($embed)) {
-            $content .= $this->renderMedia($embed);
+            $content .= $this->renderMedia($embed, $linked);
         }
 
         if ($showEngagement) {
@@ -70,7 +71,7 @@ class EmbedRenderer
             $content .= $this->renderTimestamp($postData['indexedAt'] ?? '');
         }
 
-        if ($clickBehavior === 'new-tab') {
+        if ($linked) {
             $content = sprintf(
                 '<a class="ghostlabs-fs-embed__link" href="%s" target="_blank" rel="noopener noreferrer">%s%s</a>',
                 esc_url($url),

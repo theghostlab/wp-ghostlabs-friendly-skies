@@ -85,8 +85,10 @@ trait RenderHelper
 
     /**
      * @param array<string, mixed> $record
+     * @param bool $insideLink The post's own link wraps this text, so a facet cannot be a link
+     *                         (see `RichTextProcessor::renderFacets()`).
      */
-    protected function renderPostText(array $record, bool $truncate = false, int $truncateLength = 280): string
+    protected function renderPostText(array $record, bool $truncate = false, int $truncateLength = 280, bool $insideLink = false): string
     {
         $p = $this->cssPrefix();
         $text = $record['text'] ?? '';
@@ -99,7 +101,7 @@ trait RenderHelper
         $facets = $record['facets'] ?? [];
 
         $fullHtml = !empty($facets)
-            ? RichTextProcessor::renderFacets($text, $facets)
+            ? RichTextProcessor::renderFacets($text, $facets, links: !$insideLink)
             : esc_html($text);
 
         if ($truncate && mb_strlen($text, 'UTF-8') > $truncateLength) {
@@ -123,16 +125,16 @@ trait RenderHelper
     /**
      * @param array<string, mixed> $embed
      */
-    protected function renderMedia(array $embed): string
+    protected function renderMedia(array $embed, bool $insideLink = false): string
     {
         $type = $embed['$type'] ?? '';
 
         return match ($type) {
             'app.bsky.embed.images#view' => $this->renderImages($embed['images'] ?? []),
-            'app.bsky.embed.external#view' => $this->renderExternalLink($embed['external'] ?? []),
+            'app.bsky.embed.external#view' => $this->renderExternalLink($embed['external'] ?? [], $insideLink),
             'app.bsky.embed.video#view' => $this->renderVideo($embed),
             'app.bsky.embed.record#view' => $this->renderQuotePost($embed['record'] ?? []),
-            'app.bsky.embed.recordWithMedia#view' => $this->renderRecordWithMedia($embed),
+            'app.bsky.embed.recordWithMedia#view' => $this->renderRecordWithMedia($embed, $insideLink),
             default => '',
         };
     }
@@ -171,7 +173,7 @@ trait RenderHelper
     /**
      * @param array<string, mixed> $external
      */
-    protected function renderExternalLink(array $external): string
+    protected function renderExternalLink(array $external, bool $insideLink = false): string
     {
         if (empty($external)) {
             return '';
@@ -188,14 +190,26 @@ trait RenderHelper
             );
         }
 
-        return sprintf(
-            '<a class="%1$s__external" href="%2$s" target="_blank" rel="noopener noreferrer">%3$s<div class="%1$s__external-info"><span class="%1$s__external-title">%4$s</span><span class="%1$s__external-description">%5$s</span><span class="%1$s__external-uri">%6$s</span></div>%7$s</a>',
+        $info = sprintf(
+            '<div class="%1$s__external-info"><span class="%1$s__external-title">%2$s</span><span class="%1$s__external-description">%3$s</span><span class="%1$s__external-uri">%4$s</span></div>',
             esc_attr($p),
-            esc_url($external['uri'] ?? ''),
-            $thumb,
             esc_html($external['title'] ?? ''),
             esc_html($external['description'] ?? ''),
             esc_html(wp_parse_url($external['uri'] ?? '', PHP_URL_HOST) ?: ''),
+        );
+
+        // Inside the post's own link the card is a block of the same look and no link of its
+        // own: a nested `<a>` is invalid.
+        if ($insideLink) {
+            return sprintf('<div class="%s__external">%s%s</div>', esc_attr($p), $thumb, $info);
+        }
+
+        return sprintf(
+            '<a class="%1$s__external" href="%2$s" target="_blank" rel="noopener noreferrer">%3$s%4$s%5$s</a>',
+            esc_attr($p),
+            esc_url($external['uri'] ?? ''),
+            $thumb,
+            $info,
             $this->newTabHint(),
         );
     }
@@ -266,7 +280,7 @@ trait RenderHelper
     /**
      * @param array<string, mixed> $embed
      */
-    protected function renderRecordWithMedia(array $embed): string
+    protected function renderRecordWithMedia(array $embed, bool $insideLink = false): string
     {
         $media = $embed['media'] ?? [];
         $record = $embed['record'] ?? [];
@@ -274,7 +288,7 @@ trait RenderHelper
         $html = '';
 
         if (!empty($media)) {
-            $html .= $this->renderMedia($media);
+            $html .= $this->renderMedia($media, $insideLink);
         }
 
         if (!empty($record)) {

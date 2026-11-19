@@ -8,9 +8,10 @@
  */
 
 use GHOSTLABS\FRIENDLY_SKIES\Kernel;
+use GHOSTLABS\FRIENDLY_SKIES\Service\BlockWrapper;
 use GHOSTLABS\FRIENDLY_SKIES\Service\ThreadRenderer;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $ghlbsfs_renderer = new ThreadRenderer( Kernel::getInstance()->getBlueskyService() );
-echo $ghlbsfs_renderer->render( $attributes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- the renderer escapes every value as it builds the markup (RenderHelper), which carries SVG and inline custom properties wp_kses_post() would strip.
+echo BlockWrapper::wrap( $ghlbsfs_renderer->render( $attributes ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- the renderer escapes every value as it builds the markup (RenderHelper), which carries SVG and inline custom properties wp_kses_post() would strip.

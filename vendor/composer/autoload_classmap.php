@@ -26,6 +26,7 @@ return array(
     'GHOSTLABS\\FRIENDLY_SKIES\\Render\\UpgradePanel' => $baseDir . '/inc/Render/UpgradePanel.php',
     'GHOSTLABS\\FRIENDLY_SKIES\\Service\\ApiClient' => $baseDir . '/inc/Service/ApiClient.php',
     'GHOSTLABS\\FRIENDLY_SKIES\\Service\\BlockFactory' => $baseDir . '/inc/Service/BlockFactory.php',
+    'GHOSTLABS\\FRIENDLY_SKIES\\Service\\BlockWrapper' => $baseDir . '/inc/Service/BlockWrapper.php',
     'GHOSTLABS\\FRIENDLY_SKIES\\Service\\BlueskyService' => $baseDir . '/inc/Service/BlueskyService.php',
     'GHOSTLABS\\FRIENDLY_SKIES\\Service\\Cache' => $baseDir . '/inc/Service/Cache.php',
     'GHOSTLABS\\FRIENDLY_SKIES\\Service\\CachePolicy' => $baseDir . '/inc/Service/CachePolicy.php',

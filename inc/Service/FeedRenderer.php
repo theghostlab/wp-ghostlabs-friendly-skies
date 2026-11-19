@@ -71,7 +71,8 @@ class FeedRenderer
         }
 
         $maxPosts = (int) ($attributes['maxPosts'] ?? 10);
-        $feedData = $source->fetch($subject, $maxPosts);
+        $includeReplies = (bool) ($attributes['includeReplies'] ?? false);
+        $feedData = $source->fetch($subject, $maxPosts, $includeReplies);
 
         if (is_wp_error($feedData)) {
             return $this->renderError();
@@ -79,7 +80,6 @@ class FeedRenderer
 
         $posts = $feedData['posts'];
 
-        $includeReplies = (bool) ($attributes['includeReplies'] ?? false);
         $includeReposts = (bool) ($attributes['includeReposts'] ?? true);
         $contentFilter = $attributes['contentFilter'] ?? 'all';
 

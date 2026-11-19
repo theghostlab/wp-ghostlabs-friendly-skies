@@ -29,8 +29,8 @@ final class AccountSource implements FeedSource
         return is_string($actor) ? $actor : '';
     }
 
-    public function fetch(string $subject, int $limit): array|\WP_Error
+    public function fetch(string $subject, int $limit, bool $includeReplies = false): array|\WP_Error
     {
-        return $this->blueskyService->getAuthorFeed($subject, $limit, 'posts_no_replies');
+        return $this->blueskyService->getAuthorFeed($subject, $limit, $includeReplies ? 'posts_with_replies' : 'posts_no_replies');
     }
 }
